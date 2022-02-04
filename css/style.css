@@ -1,0 +1,82 @@
+body {
+  background-color: #f4eee2;
+}
+#container {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+#container #puzzlegrid {
+  width: 445px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 2.25rem auto;
+  background-color: white;
+  border: 2px solid white;
+}
+#container #puzzlegrid .tile {
+  width: 85px;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 4px;
+  color: grey;
+}
+#container #puzzlegrid .tile:not(#tile-empty) {
+  background: url("https://ca.slack-edge.com/T6PFS8HUM-UPQK93H4H-7f81fc241b83-512");
+}
+#container #puzzlegrid .tile.can-move:hover {
+  border: 4px solid black;
+  width: 81px;
+  height: 81px;
+  filter: drop-shadow(2px 4px 6px black);
+}
+ #container button {
+  font-size: 24px;
+  background-color: #c79f46;
+  color: #f4eee2;
+  border: 0;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+#container button:hover {
+  background-color: #b6871e;
+}
+#container .tooltip {
+  position: relative;
+  display: inline-block;
+  color: #c79f46;
+  font-size: 20px;
+  margin-left: 0.5rem;
+}
+#container .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 200px;
+  font-size: 1rem;
+  background-color: #00483d;
+  color: #fff;
+  text-align: center;
+  padding: 0.5rem;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 1;
+}
+#container .tooltip .tooltiptext a {
+  color: #ff7045;
+}
+#container .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+#container .tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  top: 9px;
+  right: 100%;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent #00483d transparent transparent;
+}
