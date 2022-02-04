@@ -8,7 +8,7 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 #container #puzzlegrid {
-  width: 445px;
+  width: 425px;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -24,6 +24,7 @@ body {
   align-items: center;
   border: 2px solid white;
   border-radius: 4px;
+  background-color: white;
   color: grey;
 }
 #container #puzzlegrid .tile:not(#tile-empty) {
@@ -31,11 +32,9 @@ body {
 }
 #container #puzzlegrid .tile.can-move:hover {
   border: 4px solid black;
-  width: 81px;
-  height: 81px;
   filter: drop-shadow(2px 4px 6px black);
 }
- #container button {
+#container button#puzzle-start {
   font-size: 24px;
   background-color: #c79f46;
   color: #f4eee2;
@@ -43,7 +42,7 @@ body {
   padding: 0.25rem;
   border-radius: 4px;
 }
-#container button:hover {
+#container button#puzzle-start:hover {
   background-color: #b6871e;
 }
 #container .tooltip {

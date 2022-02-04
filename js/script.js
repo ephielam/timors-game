@@ -1,16 +1,16 @@
 // create puzzle tiles
 for (let i = 0; i < 24; i++) {
-  $("#puzzlegrid").append(`<div class="tile" id="tile-${i+1}">${i+1}</div>`);
+  $("#puzzlegrid").append(`<button class="tile" id="tile-${i+1}" disabled>${i+1}</button>`);
 }
 // add empty tile
-$("#puzzlegrid").append(`<div class="tile" id="tile-empty"></div>`);
+$("#puzzlegrid").append(`<button class="tile" id="tile-empty" disabled></button>`);
 
 // position background image
 $(".tile:not(#tile-empty)").each(function(i) {
   x = i % 5;
   y = Math.floor(i / 5);
-  // tiles 11 and 16 are slightly off in positioning
-  $(this).css("background-position", ((i == 10 | i == 15 ? -41 : - 40) - x * 89) + "px " + (-40 - y * 88) + "px");
+  // tiles 11, 16, and 21 are slightly off in positioning
+  $(this).css("background-position", ((i == 10 | i == 15 | i == 22 ? -41 : - 40) - x * 89) + "px " + (-40 - y * 88) + "px");
 });
 
 // randomly order tiles
@@ -33,22 +33,22 @@ function getEmptyTileIndex() {
 // tile
 function checkTileCanMove() {
   $("#puzzlegrid.in-play .tile").each(function(i) {
-    $(this).removeClass("can-move");
+    $(this).removeClass("can-move").prop("disabled", true);
     if (getEmptyTileIndex() % 5 == 0) {
       if (i - 1 == getEmptyTileIndex()) {
-         $(this).addClass("can-move");
+         $(this).addClass("can-move").prop("disabled", false);
       }
     } else if (getEmptyTileIndex() % 5 == 4) {
       if (i + 1 == getEmptyTileIndex()) {
-         $(this).addClass("can-move");
+         $(this).addClass("can-move").prop("disabled", false);
       }
     } else {
       if (i + 1 == getEmptyTileIndex() | i - 1 == getEmptyTileIndex()) {
-         $(this).addClass("can-move");
+         $(this).addClass("can-move").prop("disabled", false);
       }      
     }
     if (i + 5 == getEmptyTileIndex() | i - 5 == getEmptyTileIndex()) {
-       $(this).addClass("can-move");
+      $(this).addClass("can-move").prop("disabled", false);
     }
   });
 };
